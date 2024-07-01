@@ -1,7 +1,10 @@
 import React from 'react'
 import { Toggle } from '../ui/toggle'
 
-function Detail(light: any) {  
+function Light(light: any) {  
+  if (!light) {
+    return null;
+  }
   return (
     <div className='h-52 w-full bg-zinc-100 shadow-sm-white rounded-md p-5 relative'>
       <p className='text-xl font-semibold'>{light.name}</p>
@@ -14,4 +17,4 @@ function Detail(light: any) {
   )
 }
 
-export default Detail
+export default Light

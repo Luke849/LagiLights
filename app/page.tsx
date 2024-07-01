@@ -1,5 +1,5 @@
 'use client'
-import Detail from "@/components/component/Detail";
+import Light from "@/components/component/Light";
 import { useEffect, useState } from "react";
 
 interface Light {
@@ -30,7 +30,11 @@ export default function Home() {
       <main className="flex min-h-screen p-24 pt-20">
       <div className="grid grid-cols-4 grid-flow-row gap-4 w-full h-auto">
       {lights.map(light => (
-            <Detail key={light.id} light={light}/>
+            light ? (
+              <Light light={light} />
+            ) : (
+              <p>Loading...</p> 
+            )
           ))}
         {/* <div className="h-52 w-full bg-zinc-100 shadow-sm-white rounded-md"></div> */}
       </div>
