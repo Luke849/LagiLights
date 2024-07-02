@@ -18,6 +18,7 @@ module.exports = {
     },
     extend: {
       boxShadow: {
+        'xl': '0 0 7px rgba(0, 0, 0, 0.3)',
         'sm-white': '0 0 5px #FFFFFF',
       },
       dropShadow: {

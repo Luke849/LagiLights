@@ -1,23 +1,22 @@
 'use client'
 import Light from "@/components/component/Light";
+import { LightType } from "@/types/light";
 import { useEffect, useState } from "react";
 
-interface Light {
-  id: number;
-  name: string;
-}
 
 export default function Home() {
-  const [lights, setLights] = useState<Light[]>([]);
+  const [lights, setLights] = useState<LightType[]>([]);
 
   useEffect(() => {
     const fetchLights = async () => {
-      const res = await fetch('/api/lights'); // Ensure this URL is correct
+      const res = await fetch('/api/lights');
       const data = await res.json();
+      console.log(data)
       setLights(data.lights);
     };
 
     fetchLights();
+    console.log(lights);
   }, []);
 
   return (
@@ -31,7 +30,8 @@ export default function Home() {
       <div className="grid grid-cols-4 grid-flow-row gap-4 w-full h-auto">
       {lights.map(light => (
             light ? (
-              <Light light={light} />
+              <Light key={light.id} light={light} />
+
             ) : (
               <p>Loading...</p> 
             )
